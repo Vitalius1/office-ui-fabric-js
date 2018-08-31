@@ -160,19 +160,6 @@ $od-Navigation-columnPadding: 30px;
   top: 0;
 }
 
-.od-Navigation-searchContainer {
-  width: 100%;
-  position: relative;
-  padding: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: $ms-color-neutralDark;
-
-  @media (min-width: $od-Header-bannerWidth) {
-    display: none;
-  }
-}
-
 .od-Navigation-socialButtons {
   position: absolute;
   right: 0;
