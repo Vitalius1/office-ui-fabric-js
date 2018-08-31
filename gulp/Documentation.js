@@ -18,7 +18,8 @@ var componentSidebarList = [];
 var componentsList = Utilities.getFolders(Config.paths.srcDocsJSCompPages);
 for (var i = 0; i < componentsList.length; i++) {
     componentSidebarList.push({
-        "name": componentsList[i]
+        "name": componentsList[i].toLowerCase(),
+        "title": componentsList[i]
     });
 }
 
@@ -124,7 +125,7 @@ gulp.task('DocumentationViewer', ['FabricComponents', 'Samples'], function() {
         }))
         .pipe(Plugins.handlebars(templateData, Config.handleBarsConfig))
         .pipe(Plugins.template())
-        .pipe(Plugins.rename('index.html'))
+        .pipe(Plugins.rename('homepage.htm'))
         .pipe(gulp.dest(Config.paths.distDocumentation));
 });
 
@@ -146,7 +147,7 @@ gulp.task('Documentation-getStartedPage', ['Documentation-handlebars'], function
         }))
         .pipe(Plugins.handlebars(templateData, Config.handleBarsConfig))
         .pipe(Plugins.template())
-        .pipe(Plugins.rename('GetStarted.html'))
+        .pipe(Plugins.rename('getstarted.htm'))
         .pipe(gulp.dest(Config.paths.distDocsGettingStarted));
 });
 
@@ -180,7 +181,7 @@ gulp.task('Documentation-build', ['Documentation-handlebars'], function() {
           relativePath: '../../',
           packageData: Config.packageData
         };
-        pageName = demoPagesList[i];
+        pageName = demoPagesList[i].toLowerCase();
 
         var exampleModels = [];
 
@@ -232,7 +233,7 @@ gulp.task('Documentation-build', ['Documentation-handlebars'], function() {
             }))
             .pipe(Plugins.handlebars(templateData, Config.handleBarsConfig))
             .pipe(Plugins.template())
-            .pipe(Plugins.rename(pageName + ".html"))
+            .pipe(Plugins.rename(pageName + ".htm"))
             .pipe(gulp.dest(Config.paths.distDocsComponents + '/' + pageName));
 
         streams.push(componentPipe);

@@ -259,17 +259,17 @@
           <nav class="nav">
             <ul class="links">
               <li class="link isHomePage fabricPage">
-                <a href="{{relativePath}}index.html" title="Home page" aria-label="Home Page">Fabric JS</a>
+                <a href="{{relativePath}}homepage.htm" title="Home page" aria-label="Home Page">Fabric JS</a>
               </li>
               <li class="link GetStarted getStartedPage">
-                <a class="getStarted" href="{{relativePath}}GetStarted/GetStarted.html" data-url="GetStarted/GetStarted.html">Get Started</a>
+                <a class="getStarted" href="{{relativePath}}getstarted/getstarted.htm" data-url="getstarted/getstarted.htm">Get Started</a>
               </li>
               <li class="link linkToggle Components">
                 <a href="#">Components</a>
                 <ul class="links isSubMenu">
                   <% components.forEach(function(component) { %>
                   <li class="link">
-                    <a href="{{relativePath}}Components/<%= component.name %>/<%= component.name %>.html" data-url="Components/<%= component.name %>/<%= component.name %>.html"><%= component.name %></a>
+                    <a href="{{relativePath}}components/<%= component.name %>/<%= component.name %>.htm" data-url="components/<%= component.name %>/<%= component.name %>.htm"><%= component.title %></a>
                   </li>
                   <% }); %>
                 </ul>
