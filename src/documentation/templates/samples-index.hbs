@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link href="https://devofficecdn.azureedge.net/themes/DevOffice/Content/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/media/fabric-js/home/fabric.min.js"></script>
-  <link rel="stylesheet" href="{{relativePath}}styles.css" />
-  <link rel="stylesheet" href="{{relativePath}}../css/fabric.min.css" />
-  <link rel="stylesheet" href="{{relativePath}}../css/fabric.components.min.css" />
+  <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/styles.css" />
+  <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/fabric.min.css" />
+  <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/fabric.components.min.css" />
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/media/fabric-js/home/scrollTo.js"></script>
   {{#if pageInfo.isDatePicker}}
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/media/fabric-js/home/jquery.js"></script>
@@ -19,7 +19,9 @@
   <div class="main">
     <div class="ms-Fabric ms-font-m App">
       <header class="od-Header">
-        <div style={color: white}>HELLO</div>
+        <a href="{{relativePath}}homepage.htm" title="Home page" aria-label="Home Page">Fabric JS</a>
+        <a href="{{relativePath}}getstarted/getstarted.htm" data-url="getstarted/getstarted.htm">Get Started</a>
+        <a href="{{relativePath}}components/breadcrumb/breadcrumb.htm" data-url="breadcrumb/breadcrumb.htm">Components</a>
       </header>
       <div class="App-wrapper">
         <div class="App-mobileNavBar">
@@ -30,22 +32,11 @@
         <div class="App-nav">
           <nav class="nav">
             <ul class="links">
-              <li class="link isHomePage fabricPage">
-                <a href="{{relativePath}}homepage.htm" title="Home page" aria-label="Home Page">Fabric JS</a>
+              <% components.forEach(function(component) { %>
+              <li class="link">
+                <a href="{{relativePath}}components/<%= component.name %>/<%= component.name %>.htm" data-url="components/<%= component.name %>/<%= component.name %>.htm"><%= component.title %></a>
               </li>
-              <li class="link GetStarted getStartedPage">
-                <a class="getStarted" href="{{relativePath}}getstarted/getstarted.htm" data-url="getstarted/getstarted.htm">Get Started</a>
-              </li>
-              <li class="link linkToggle Components">
-                <a href="#">Components</a>
-                <ul class="links isSubMenu">
-                  <% components.forEach(function(component) { %>
-                  <li class="link">
-                    <a href="{{relativePath}}components/<%= component.name %>/<%= component.name %>.htm" data-url="components/<%= component.name %>/<%= component.name %>.htm"><%= component.title %></a>
-                  </li>
-                  <% }); %>
-                </ul>
-              </li>
+              <% }); %>
             </ul>
           </nav>
         </div>
@@ -57,27 +48,7 @@
   </div>
   <script type="text/javascript">
     (function(){
-      var mainContainer = document.getElementById('mainContent');
-      var toggleLinks = document.querySelectorAll('.linkToggle > a');
-      function linkToggle() {
-        if (this.parentNode.classList.contains('hasActiveChild')) {
-          (this.parentNode.classList.contains('hideChildren')) ?
-          this.parentNode.classList.remove('hideChildren') :
-          this.parentNode.classList.add('hideChildren');
-        } else {
-          (this.parentNode.classList.contains('isActive')) ?
-          this.parentNode.classList.remove('isActive') :
-          this.parentNode.classList.add('isActive');
-        }
-      }
-
-      // Assign nav menu toggling
-      for (var i = 0; i < toggleLinks.length; i++) {
-        toggleLinks[i].addEventListener("click", linkToggle);
-      }
-
-
-      // Highlight current page
+      // Highlight current component link in SideBar navigation.
       function navLinkHighlight() {
         const ALL_NAV_LINKS = document.querySelectorAll(".nav .link > a");
         const URL_PATH = window.location.pathname;
@@ -87,10 +58,6 @@
           var indexOfTarget = URL_PATH.indexOf(targetURL);
           if (indexOfTarget > -1) {
             ALL_NAV_LINKS[i].parentNode.classList.add("isActive");
-            if (ALL_NAV_LINKS[i].parentNode.parentNode.parentNode) {
-              ALL_NAV_LINKS[i].parentNode.parentNode.parentNode.classList.add("hasActiveChild");
-              ALL_NAV_LINKS[i].parentNode.parentNode.parentNode.classList.add("isActive");
-            }
           }
         }
       }
