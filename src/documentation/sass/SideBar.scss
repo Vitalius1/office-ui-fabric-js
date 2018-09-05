@@ -5,6 +5,30 @@
   @include padding-left(36px);
 }
 
+.links {
+  display: none;
+
+  &.showLinkList {
+    display: block;
+  }
+
+  @media screen and (max-width: $ms-screen-lg-max) {
+    display: block;
+  }
+}
+
+.mobileLinks {
+  display: none;
+
+  .link > a{
+    font-size: $ms-font-size-l;
+  }
+
+  @media screen and (max-width: $ms-screen-lg-max) {
+    display: block;
+  }
+}
+
 .link {
   position: relative;
   margin-bottom: 12px;

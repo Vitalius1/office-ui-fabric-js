@@ -20,8 +20,8 @@
     <div class="ms-Fabric ms-font-m App">
       <header class="od-Header">
         <a href="{{relativePath}}homepage.htm" title="Home page" aria-label="Home Page">Fabric JS</a>
-        <a href="{{relativePath}}getstarted/getstarted.htm" data-url="getstarted/getstarted.htm">Get Started</a>
-        <a href="{{relativePath}}components/breadcrumb/breadcrumb.htm" data-url="breadcrumb/breadcrumb.htm">Components</a>
+        <a href="{{relativePath}}getstarted/getstarted.htm">Get Started</a>
+        <a href="{{relativePath}}components/breadcrumb/breadcrumb.htm">Components</a>
       </header>
       <div class="App-wrapper">
         <div class="App-mobileNavBar">
@@ -31,6 +31,15 @@
         <div class="App-mobileNavOverlay"></div>
         <div class="App-nav">
           <nav class="nav">
+            <ul class="mobileLinks">
+              <li class="link">
+                <a href="{{relativePath}}homepage.htm" title="Home page" aria-label="Home Page">Fabric JS</a>
+              </li>
+              <li class="link">
+                <a href="{{relativePath}}getstarted/getstarted.htm">Get Started</a>
+              </li>
+              <hr>
+            </ul>
             <ul class="links">
               <% components.forEach(function(component) { %>
               <li class="link">
@@ -51,7 +60,12 @@
       // Highlight current component link in SideBar navigation.
       function navLinkHighlight() {
         const ALL_NAV_LINKS = document.querySelectorAll(".nav .link > a");
+        const NAV_LINKS_LIST = document.querySelector(".links");
         const URL_PATH = window.location.pathname;
+
+        if (URL_PATH.indexOf("components") > -1) {
+          NAV_LINKS_LIST.classList.add("showLinkList")
+        }
 
         for (var i = 0; i < ALL_NAV_LINKS.length; i++) {
           var targetURL = ALL_NAV_LINKS[i].getAttribute("data-url")
