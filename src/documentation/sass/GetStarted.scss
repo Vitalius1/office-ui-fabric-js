@@ -5,116 +5,22 @@
   }
 }
 
-//== Shared style for sections
-
-.designSection,
-.structureSection,
-.instructionsSection {
-  @include fullWidth();
-  @include contentPadding(20px, 40px);
-}
-
-.designSection,
-.structureSection {
-  h2 {
-    color: $ms-color-neutralLighter;
-    font-size: $ms-font-size-xxl;
-    font-weight: $ms-font-weight-light;
-    line-height: 1.2;
-    margin-bottom: 48px;
-    margin-top: 0;
-    max-width: 12em;
-  }
-}
-
-@media screen and (min-width: $ms-screen-lg-min) {
-  .designSection,
-  .structureSection,
-  .instructionsSection {
-    padding-top: 60px;
-    padding-bottom: 120px;
-  }
-
-  .designSection,
-  .structureSection {
-    h2 {
-      font-size: $font-size-bigger;
-    }
-  }
-}
-
-
-//== Design section
-
-.designSection {
-  @include headerAngles($ms-color-neutralPrimary);
-  background-color:$color-getStarted;
-  color: $ms-color-neutralLighter;
-}
-
-.feature {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 32px;
-
-  img {
-    height: 100%;
-    margin-bottom: 8px;
-    width: 80%;
-  }
-
-  .title {
-    font-size: $font-size-big;
-    font-weight: $ms-font-weight-semilight;
-    margin-bottom: 20px;
-    width: 100%;
-  }
-
-  .description {
-    font-weight: $ms-font-weight-semilight;
-    font-size: $ms-font-size-l;
-    line-height: 1.5;
-    color: $ms-color-neutralLight;
-    max-width: 100%;
-  }
-}
-
-@media screen and (max-width: $ms-screen-md-max) {
-  .designSection .feature {
-    float: none;
-  }
-}
-
-@media screen and (min-width: $ms-screen-lg-min) {
-  img {
-    margin-bottom: 20px;
-  }
-}
-
-
-//== Structure section (diagram)
-
-.structureSection {
-  color: $ms-color-neutralLighter;
-  background-color: $ms-color-neutralPrimary;
-}
-
-
 //== Instructions section
 
 .instructionsSection {
+  @include fullWidth();
+  @include contentPadding(20px, 40px);
   max-width: 60em;
-
+  
   // Push the second set of instructions down
   h2:not(:first-child) {
     margin-top: 120px;
   }
-
+  
   h2 + p {
     font-size: $ms-font-size-l;
   }
-
+  
   a {
     color: $color-getStarted-medium;
   }
@@ -155,6 +61,11 @@
 }
 
 @media screen and (min-width: $ms-screen-lg-min) {
+  .instructionsSection {
+    padding-top: 60px;
+    padding-bottom: 120px;
+  }
+
   .steps {
     li {
       @include padding-left(56px);
