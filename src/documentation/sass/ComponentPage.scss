@@ -103,6 +103,10 @@ $dontColor: #A61E22;
     @include ms-font-l;
     text-decoration: none;
   }
+
+  .reactLink {
+    color: $ms-color-themePrimary;
+  }
 }
 
 .ComponentPage-overviewSection,
