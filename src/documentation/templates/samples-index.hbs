@@ -60,22 +60,19 @@
       // Add isAttached to pageHeader on scroll
       const FULL_HEADER_HEIGHT = 236;
       const ATTACHED_HEADER_HEIGHT = 128;
-      const SCROLL_THRESHHOLD = FULL_HEADER_HEIGHT - ATTACHED_HEADER_HEIGHT;
-      var isAttached;
+      const SCROLL_THRESHOLD = FULL_HEADER_HEIGHT - ATTACHED_HEADER_HEIGHT;
+
       const pageHeader = document.querySelector('.pageHeader');
       if (pageHeader) {
         window.onscroll = checkHeaderAttachment;
-        checkHeaderAttachment();
 
         function checkHeaderAttachment() {
           var scroll = window.scrollY || document.documentElement.scrollTop;
-          if (scroll >= SCROLL_THRESHHOLD) {
-            isAttached = true;
+          if (scroll >= SCROLL_THRESHOLD) {
             if (!pageHeader.classList.contains('isAttached')) {
               pageHeader.classList.add('isAttached');
             }
           } else {
-            isAttached = false;
             if (pageHeader.classList.contains('isAttached')) {
               pageHeader.classList.remove('isAttached');
             }
