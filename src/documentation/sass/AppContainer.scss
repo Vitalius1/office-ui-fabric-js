@@ -29,7 +29,7 @@ body {
   bottom: 0;
   @include left(-$Nav-width);
   position: fixed;
-  top: $Header-height + $App-mobileNavBarHeight;
+  top: $Header-height;
   transition: $ms-duration2 $ms-ease1;
   @include transition-property(left);
   width: $Nav-width;
@@ -42,7 +42,6 @@ body {
   background-color: $ms-color-neutralLighter;
   flex-grow: 1;
   left: 0;
-  margin-top: $App-mobileNavBarHeight; // Move it down below the mobile nav bar
   position: relative;
   transition: all $ms-duration2 $ms-ease1;
   overflow-x: hidden;

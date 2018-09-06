@@ -179,7 +179,8 @@ gulp.task('Documentation-build', ['Documentation-handlebars'], function() {
           page: 'Components',
           template: 'ComponentPageTmpl',
           relativePath: '../../',
-          packageData: Config.packageData
+          packageData: Config.packageData,
+          componentsPage: true
         };
         pageName = demoPagesList[i].toLowerCase();
 
