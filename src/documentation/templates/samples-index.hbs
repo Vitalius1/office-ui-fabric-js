@@ -5,24 +5,19 @@
 	<title>Office UI Fabric JS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link href="https://devofficecdn.azureedge.net/themes/DevOffice/Content/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-  <script type="text/javascript" src="https://cdn.graph.office.net/prod/media/fabric-js/home/fabric.min.js"></script>
-  <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/styles.css" />
+  <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/fabric.min.js"></script>
+  <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/styles.min.css" />
   <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/fabric.min.css" />
   <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/fabric.components.min.css" />
-  <script type="text/javascript" src="https://cdn.graph.office.net/prod/media/fabric-js/home/scrollTo.js"></script>
+  <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/scrollTo.js"></script>
   {{#if pageInfo.isDatePicker}}
-  <script type="text/javascript" src="https://cdn.graph.office.net/prod/media/fabric-js/home/jquery.js"></script>
-  <script type="text/javascript" src="https://cdn.graph.office.net/prod/media/fabric-js/home/PickaDate.js"></script>
+  <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/jquery.js"></script>
+  <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/PickaDate.js"></script>
   {{/if}}
 </head>
 <body>
   <div class="main">
     <div class="ms-Fabric ms-font-m App">
-      <header class="od-Header">
-        <a href="{{relativePath}}homepage.htm" title="Home page" aria-label="Home Page">Fabric JS</a>
-        <a href="{{relativePath}}getstarted/getstarted.htm">Get Started</a>
-        <a href="{{relativePath}}components/breadcrumb/breadcrumb.htm">Components</a>
-      </header>
       <div class="App-wrapper">
         <div class="App-mobileNavBar">
           <button class="menuButton"><i class="ms-Icon ms-Icon--GlobalNavButton"></i></button>
@@ -33,17 +28,17 @@
           <nav class="nav">
             <ul class="mobileLinks">
               <li class="link">
-                <a href="{{relativePath}}homepage.htm" title="Home page" aria-label="Home Page">Fabric JS</a>
+                <a href="{{relativePath}}" title="Home page" aria-label="Home Page">Fabric JS</a>
               </li>
               <li class="link">
-                <a href="{{relativePath}}getstarted/getstarted.htm">Get Started</a>
+                <a href="{{relativePath}}getstarted/getstarted">Get Started</a>
               </li>
               <hr>
             </ul>
             <ul class="links">
               <% components.forEach(function(component) { %>
               <li class="link">
-                <a href="{{relativePath}}components/<%= component.name %>/<%= component.name %>.htm" data-url="components/<%= component.name %>/<%= component.name %>.htm"><%= component.title %></a>
+                <a href="{{relativePath}}components/<%= component.name %>/<%= component.name %>" data-url="components/<%= component.name %>/<%= component.name %>.htm"><%= component.title %></a>
               </li>
               <% }); %>
             </ul>
