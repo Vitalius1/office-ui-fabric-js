@@ -5,7 +5,7 @@ body {
 }
 
 .App {
-  background-color: $ms-color-white;
+  background-color: $ms-color-neutralDark;
   justify-content: center;
 
   /* Z-index overrides for components */
@@ -21,40 +21,6 @@ body {
   margin: 0 auto;
   max-width: $App-maximumWidth;
   box-sizing: border-box;
-}
-
-.App-mobileNavBar {
-  @include contentPadding(0, 0);
-  background: $ms-color-neutralDark;
-  color: $ms-color-white;
-  display: flex;
-  height: $App-mobileNavBarHeight;
-  left: 0;
-  position: fixed;
-  right: 0;
-  z-index: $ms-zIndex-5;
-
-  .menuButton {
-    background: transparent;
-    color: $ms-color-white;
-    font-size: $font-size-big;
-    font-weight: $ms-font-weight-regular;
-    height: $App-mobileNavBarHeight;
-    line-height: $App-mobileNavBarHeight;
-    @include margin-right(12px);
-    padding: 0;
-    border: 0;
-
-    &:focus {
-      outline: 0;
-    }
-  }
-
-  .siteTitle {
-    font-size: $font-size-big;
-    font-weight: $ms-font-weight-light;
-    line-height: $App-mobileNavBarHeight - 2;
-  }
 }
 
 // Nav is hidden off screen by default
@@ -95,59 +61,10 @@ body {
 
 }
 
-// Overlay to dim content and dismiss the mobile nav (hidden by default)
-.App-mobileNavOverlay {
-  display: none;
-}
-
-// When the nav is open (smaller screens only) push the content over and prevent app from scrolling
-@media screen and (max-width: $ms-screen-lg-max) {
-  .App.is-navOpen {
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    .App-mobileNavBar {
-      @include padding-left(36px); // Align to menu items
-
-      .siteTitle {
-        display: none;
-      }
-    }
-
-    .App-mobileNavOverlay {
-      background: transparent;
-      bottom: 0;
-      display: block;
-      position: absolute;
-      @include left($Nav-width);
-      @include right(0);
-      top: 0;
-      z-index: $ms-zIndex-1;
-    }
-
-    .App-nav {
-      @include left(0);
-    }
-
-    .App-content {
-      @include left($Nav-width);
-      opacity: 0.5; // Dim the content
-    }
-  }
-}
-
 // Show the nav at all times, to the left of the content
 @media screen and (min-width: $ms-screen-xl-min) {
   .App-wrapper {
     flex-direction: row;
-  }
-
-  .App-mobileNavBar {
-    display: none;
   }
 
   .App-nav {

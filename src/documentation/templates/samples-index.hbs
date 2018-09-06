@@ -19,22 +19,8 @@
   <div class="main">
     <div class="ms-Fabric ms-font-m App">
       <div class="App-wrapper">
-        <div class="App-mobileNavBar">
-          <button class="menuButton"><i class="ms-Icon ms-Icon--GlobalNavButton"></i></button>
-          <div class="siteTitle">Fabric JS</div>
-        </div>
-        <div class="App-mobileNavOverlay"></div>
         <div class="App-nav">
           <nav class="nav">
-            <ul class="mobileLinks">
-              <li class="link">
-                <a href="{{relativePath}}" title="Home page" aria-label="Home Page">Fabric JS</a>
-              </li>
-              <li class="link">
-                <a href="{{relativePath}}getstarted/getstarted">Get Started</a>
-              </li>
-              <hr>
-            </ul>
             <ul class="links">
               <% components.forEach(function(component) { %>
               <li class="link">
@@ -72,29 +58,6 @@
       }
 
       navLinkHighlight();
-
-
-      // Handle navigation toggle menu
-
-      var navState = false;
-      var appContainer = document.querySelector(".App");
-      var navButton = document.querySelector(".menuButton");
-      var navButtonIcon = navButton.querySelector('.ms-Icon');
-      var navOverlay = document.querySelector(".App-mobileNavOverlay");
-      navButton.addEventListener("click", toggleNav);
-      navOverlay.addEventListener("click", toggleNav);
-      function toggleNav() {
-        if (navState) {
-          appContainer.classList.remove("is-navOpen");
-          navButtonIcon.classList.add("ms-Icon--GlobalNavButton");
-          navButtonIcon.classList.remove("ms-Icon--ChromeClose");
-        } else {
-          appContainer.classList.add("is-navOpen");
-          navButtonIcon.classList.add("ms-Icon--ChromeClose");
-          navButtonIcon.classList.remove("ms-Icon--GlobalNavButton");
-        }
-        navState = !navState;
-      }
 
       // Add isAttached to pageHeader on scroll
       const FULL_HEADER_HEIGHT = 236;
