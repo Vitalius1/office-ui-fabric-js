@@ -1,8 +1,6 @@
 //== Common
 .button {
-  @include ghostButton($color-home-lighter, $color-home-darker);
   flex-shrink: 0;
-  font-size: $ms-font-size-l;
 }
 
 //== Hero
@@ -54,6 +52,7 @@
 
 .primaryButton {
   @include ghostButton($ms-color-white, $color-home-darker);
+  font-size: $ms-font-size-l;
   background-color: $ms-color-white;
   
   &.getStarted {
@@ -117,16 +116,6 @@
 
   img {
     margin-bottom: 12px;
-  }
-
-  a {
-    color: $color-home-lighter;
-    font-size: $ms-font-size-m;
-    transition: color $ms-duration2 $ms-ease1;
-
-    &:hover {
-      color: $ms-color-white;
-    }
   }
 
   .button {

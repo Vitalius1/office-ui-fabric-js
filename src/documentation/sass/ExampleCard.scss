@@ -29,8 +29,24 @@
     border-top-right-radius: 4px;
     line-height: 1;
     padding: 4px 12px;
-    min-width: 100px;
+    width: 130px;
     transition: border $ms-duration3 $ms-ease1;
+    position: relative;
+
+    &:focus {
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        border: 1px solid $ms-color-neutralTertiary;
+        box-sizing: border-box;
+        outline: 1px solid $color-focus-outline;
+      }
+    }
 
     .ms-Button-icon {
       display: inline-block;
@@ -58,6 +74,10 @@
     &:hover {
       background-color: $ms-color-neutralDark;
       border-color: $ms-color-neutralDark;
+
+      &:after {
+        border-color: $ms-color-neutralDark;
+      }
 
       .ms-Button-icon,
       .ms-Button-label {
@@ -112,6 +132,11 @@
 
   .ExampleCard-codeButton {
     background-color: $ms-color-neutralDark;
+    border-color: $ms-color-neutralDark;
+
+    &:after {
+      border-color: $ms-color-neutralDark;
+    }
 
     .ms-Button-icon,
     .ms-Button-label {

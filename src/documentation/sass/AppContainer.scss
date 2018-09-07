@@ -77,15 +77,4 @@ body {
     flex-grow: unset;
     width: calc(100% - #{$Nav-width});
   }
-
-  // Reset values for the nav and content if opened on larger screens
-  .App.is-navOpen {
-    .App-nav {
-      @include left(auto);
-    }
-
-    .App-content {
-      @include left(auto);
-    }
-  }
 }
