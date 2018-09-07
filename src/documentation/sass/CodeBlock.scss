@@ -62,7 +62,7 @@
   .hljs-comment, .hljs-quote {
     color: #777;
   }
-  .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-regexp, .hljs-meta, .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-params, .hljs-symbol, .hljs-bullet, .hljs-link, .hljs-deletion {
+  .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-regexp, .hljs-meta, .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-params, .hljs-symbol, .hljs-bullet, .hljs-link, .hljs-deletion, .hljs-attr {
     color: #ab875d;
   }
   .hljs-section, .hljs-title, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-type, .hljs-attribute {
@@ -84,7 +84,7 @@
   .hljs {
     background: $ms-color-white;
   }
-  .hljs, .hljs-subst {
+  .hljs, .hljs-subst, .hljs-tag, .hljs-attr {
     color: #434f54;
   }
   .hljs-keyword, .hljs-attribute, .hljs-selector-tag, .hljs-doctag, .hljs-name {
