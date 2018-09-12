@@ -5,13 +5,47 @@
 	<title>Office UI Fabric JS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/fabric.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.graph.office.net/prod/css/fabric-js/styles.min.css" />
+  <link rel="stylesheet" href="https://graphstagingblobstorage.blob.core.windows.net/staging/css/fabric-js/styles.min.css" />
   <link rel="stylesheet" href="https://cdn.graph.office.net/prod/css/fabric-js/fabric.min.css" />
   <link rel="stylesheet" href="https://cdn.graph.office.net/prod/css/fabric-js/fabric.components.min.css" />
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/scrollTo.js"></script>
   {{#if pageInfo.isDatePicker}}
-  <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/jquery.js"></script>
+  <script type="text/javascript">
+    // This is a workaround solution for toggling the requirejs module bundler to skip the script loading pickadate.js only for this page.
+    // Issue description: https://requirejs.org/docs/errors.html#mismatch
+    // Solution: https://www.npmjs.com/package/requirejs-toggle - minus the console.logs
+    // Toggle OFF requirejs saving it to __requirejsToggleBackup
+    if (window.__requirejsToggleBackup) {
+      Object.assign(window, window.__requirejsToggleBackup)
+      delete window.__requirejsToggleBackup
+    } else {
+      window.__requirejsToggleBackup = {
+        define: window.define,
+        require: window.require,
+        requirejs: window.requirejs
+      }
+      for (const field of Object.keys(window.__requirejsToggleBackup)) {
+        window[field] = undefined
+      }
+    }
+  </script>
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/PickaDate.js"></script>
+  <script type="text/javascript">
+    // Toggle ON requirejs from __requireToggleBackup
+    if (window.__requirejsToggleBackup) {
+      Object.assign(window, window.__requirejsToggleBackup)
+      delete window.__requirejsToggleBackup
+    } else {
+      window.__requirejsToggleBackup = {
+        define: window.define,
+        require: window.require,
+        requirejs: window.requirejs
+      }
+      for (const field of Object.keys(window.__requirejsToggleBackup)) {
+        window[field] = undefined
+      }
+    }
+  </script>
   {{/if}}
 </head>
 <body>
