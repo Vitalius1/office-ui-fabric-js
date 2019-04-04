@@ -5,7 +5,7 @@
 	<title>Office UI Fabric JS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/fabric.min.js"></script>
-  <link rel="stylesheet" href="{{relativePath}}styles.css" />
+  <link rel="stylesheet" href="https://cdn.graph.office.net/prod/css/fabric-js/styles.min.css" />
   <link rel="stylesheet" href="https://cdn.graph.office.net/prod/css/fabric-js/fabric.min.css" />
   <link rel="stylesheet" href="https://cdn.graph.office.net/prod/css/fabric-js/fabric.components.min.css" />
   <script type="text/javascript" src="https://cdn.graph.office.net/prod/Scripts/fabric-js/scrollTo.js"></script>
@@ -49,10 +49,11 @@
   {{/if}}
 </head>
 <body>
+  <div id="metadata" title="{{pageName}} - Office UI Fabric JS" description="The JavaScript front-end framework for building experiences for Office and Office 365." style="visibility:hidden"></div>
   <div class="main">
     <div class="App-deprecationMessage">
       <i class="ms-Icon ms-Icon--Info deprecationIcon" role="presentation"></i>
-      <span class="deprecationMessage" role="status" aria-live="polite">FabricJS project is deprecated and no further maintained! To build experiences that align with Office design language learn more about <a href="https://developer.microsoft.com/fabric" class="reactLink">Fabric React</a>.</span>
+      <span class="deprecationMessage" role="status" aria-live="polite">Microsoft no longer supports this content and will not be responding to bugs or issues. We recommend using the newer version <a href="https://developer.microsoft.com/fabric" class="reactLink">Office UI Fabric React</a> as your front-end framework.</span>
     </div>
     <div class="ms-Fabric ms-font-m App">
       <div class="App-wrapper">
