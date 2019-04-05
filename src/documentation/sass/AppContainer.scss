@@ -84,7 +84,7 @@ body {
   box-sizing: border-box;
   background: $ms-color-neutralLighter;
   padding: 16px;
-  display: flex;
+  display: none; // This should be changed to flex to re-enable the deprecation message banner.
   align-items: center;
 
   .deprecationMessage {
